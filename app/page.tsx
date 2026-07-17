@@ -7,7 +7,6 @@ const services = [
   {
     id: "social-media",
     title: "Social Media Marketing",
-    price: " 20,000 / month",
     short: "Complete Instagram and Facebook management with planning, posting, captions, hashtags, engagement, and reporting.",
     details: [
       "Content planning and calendar management",
@@ -19,7 +18,6 @@ const services = [
   {
     id: "video-production",
     title: "Video & Creative Production",
-    price: " 10,000",
     short: "Cinematic food, product, ambience, and brand reels optimized for social media.",
     details: [
       "Professional shooting and editing",
@@ -31,7 +29,6 @@ const services = [
   {
     id: "influencer",
     title: "Influencer Marketing",
-    price: " 8,000",
     short: "Trusted local creator discovery, coordination, and campaign tracking.",
     details: [
       "Influencer shortlisting and planning",
@@ -43,7 +40,6 @@ const services = [
   {
     id: "paid-ads",
     title: "Paid Advertising",
-    price: " 10,000 / month",
     short: "Meta and Google campaigns designed to reach the right audience and generate leads.",
     details: [
       "Campaign creation and optimization",
@@ -55,7 +51,6 @@ const services = [
   {
     id: "seo-local",
     title: "SEO & Local Marketing",
-    price: " 10,000 / month",
     short: "Google Search and Maps visibility, local SEO, keyword research, and profile optimization.",
     details: [
       "Google Business Profile optimization",
@@ -67,7 +62,6 @@ const services = [
   {
     id: "branding",
     title: "Branding & Graphic Design",
-    price: " 8,000",
     short: "Social posts, stories, menus, posters, banners, and campaign creatives that strengthen your identity.",
     details: [
       "Promo creatives and festival campaigns",
@@ -79,7 +73,6 @@ const services = [
   {
     id: "websites",
     title: "Website & Landing Pages",
-    price: " 15,000",
     short: "Modern responsive websites with WhatsApp integration and contact forms.",
     details: [
       "Landing pages for offers and services",
@@ -139,6 +132,7 @@ const packages = [
 ];
 
 const addOns = [
+  ["Custom Addons", " 4,000"],
   ["Sample Reel", " 4,000"],
   ["1 Extra Reel", " 2,000"],
   ["10 Extra Reels", " 18,000"],
@@ -161,9 +155,15 @@ const keywords = [
 ];
 
 export default function Home() {
-  const [openService, setOpenService] = useState(services[1].id);
+  const [openServices, setOpenServices] = useState<string[]>(() => services.map((service) => service.id));
   const [selectedPackage, setSelectedPackage] = useState("Growth");
   const [proofFilter, setProofFilter] = useState("All");
+
+  const toggleService = (serviceId: string) => {
+    setOpenServices((previous) =>
+      previous.includes(serviceId) ? previous.filter((id) => id !== serviceId) : [...previous, serviceId]
+    );
+  };
 
   const filteredProof = useMemo(() => {
     if (proofFilter === "All") return proofItems;
@@ -258,13 +258,17 @@ export default function Home() {
         </div>
         <div className="services-grid">
           {services.map((service) => {
-            const isOpen = openService === service.id;
+            const isOpen = openServices.includes(service.id);
             return (
               <article key={service.id} className={`service-card ${isOpen ? "open" : ""}`}>
-                <button type="button" className="service-trigger" onClick={() => setOpenService(service.id)}>
+                <button
+                  type="button"
+                  className="service-trigger"
+                  aria-expanded={isOpen}
+                  onClick={() => toggleService(service.id)}
+                >
                   <span className="service-tag">{service.category}</span>
                   <strong>{service.title}</strong>
-                  <span>{service.price}</span>
                 </button>
                 <p>{service.short}</p>
                 {isOpen && (
@@ -310,10 +314,14 @@ export default function Home() {
           ))}
         </div>
         <div className="results-strip" aria-label="Brochure facts">
-          <span>Website: sarthak-oza.vercel.app</span>
-          <span>Instagram: @sarthak.ozha</span>
-          <span>Phone: 8780080875 / 8780486871</span>
-          <span>Mail: sarthak.ozha@gmail.com</span>
+          <span><a href="https://sarthak-oza.vercel.app" target="_blank" rel="noreferrer">
+            Website: sarthak-oza.vercel.app
+          </a></span>
+          <span><a href="https://instagram.com/sarthak.ozha" target="_blank" rel="noreferrer">
+            Instagram: @sarthak.ozha
+          </a></span>
+          <span><a href="tel:8780080875">Phone: 8780080875 / 8780486871</a></span>
+          <span><a href="mailto:sarthak.ozha@gmail.com">Mail: sarthak.ozha@gmail.com</a></span>
         </div>
       </section>
 
@@ -342,9 +350,15 @@ export default function Home() {
                   <p className="muted small">Not included: {pack.excluded.join(', ')}.</p>
                 )}
                 <p className="muted small">{pack.reels}</p>
-                <button type="button" className="button button-ghost full" onClick={() => setSelectedPackage(pack.name)}>
+                <a
+                  className="button button-ghost full"
+                  href={`https://wa.me/918780080875?text=${encodeURIComponent(`Hi, I am interested in the ${pack.name} package.`)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  onClick={() => setSelectedPackage(pack.name)}
+                >
                   Choose {pack.name}
-                </button>
+                </a>
               </article>
             );
           })}
@@ -357,10 +371,10 @@ export default function Home() {
           <h2>Flexible extras you can add to any package.</h2>
         </div>
         <div className="glass-card add-on-list">
-          {addOns.map(([label, price]) => (
+          {addOns.map(([label]) => (
             <div key={label}>
               <span>{label}</span>
-              <strong>{price}</strong>
+              <strong>Available</strong>
             </div>
           ))}
         </div>
@@ -395,7 +409,7 @@ export default function Home() {
             <a href="https://instagram.com/sarthak.ozha" target="_blank" rel="noreferrer">
               @sarthak.ozha
             </a>
-            <a href="/Sarthak_Ozha_Brochure.pdf" target="_blank" rel="noreferrer" className="button button-solid full">
+            <a href="/Sarthak_Ozha_Brochure.pdf" target="_blank" rel="noreferrer" download="Sarthak_Ozha_Brochure.pdf" className="button button-solid full" style={{ marginTop: "1rem", color: "Black" }}>
               Download Brochure
             </a>
           </div>
