@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Caladea, Carlito } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
+const caladea = Caladea({
   subsets: ["latin"],
-  variable: "--font-space-grotesk",
+  variable: "--font-display",
+  weight: ["400", "700"],
+});
+
+const carlito = Carlito({
+  subsets: ["latin"],
+  variable: "--font-body",
+  weight: ["400", "700"],
 });
 
 export const metadata: Metadata = {
@@ -35,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={spaceGrotesk.variable}>{children}</body>
+      <body className={`${caladea.variable} ${carlito.variable}`}>{children}</body>
     </html>
   );
 }

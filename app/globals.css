@@ -1,13 +1,15 @@
 :root {
-  --bg: #05070b;
-  --bg-accent: #11121a;
-  --surface: rgba(12, 15, 22, 0.78);
-  --surface-border: rgba(212, 180, 114, 0.18);
-  --text: #f6f1e7;
-  --muted: #c7bfae;
-  --accent: #d8b36d;
-  --accent-strong: #f1d38a;
-  --panel: rgba(255, 255, 255, 0.04);
+  --bg: #f4efe2;
+  --bg-accent: #e9e1cb;
+  --surface: rgba(255, 255, 255, 0.82);
+  --surface-strong: #fffaf1;
+  --surface-border: rgba(22, 48, 44, 0.14);
+  --text: #16302c;
+  --muted: #4d6560;
+  --accent: #c7a85c;
+  --accent-strong: #155d58;
+  --accent-soft: #ead9a8;
+  --panel: rgba(255, 255, 255, 0.58);
 }
 
 * {
@@ -17,11 +19,11 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: var(--font-space-grotesk), sans-serif;
+  font-family: var(--font-body), sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top left, rgba(216, 179, 109, 0.03), transparent 26%),
-    radial-gradient(circle at 80% 10%, rgba(241, 211, 138, 0.02), transparent 20%),
+    radial-gradient(circle at top left, rgba(199, 168, 92, 0.18), transparent 26%),
+    radial-gradient(circle at 80% 10%, rgba(21, 93, 88, 0.12), transparent 20%),
     linear-gradient(160deg, var(--bg), var(--bg-accent));
 }
 
@@ -53,6 +55,18 @@ a {
     color 180ms ease;
 }
 
+h1,
+h2,
+h3,
+.brand strong,
+.service-trigger strong,
+.package-card h3,
+.proof-card h3,
+.contact-details h3,
+.hero-stats strong {
+  font-family: var(--font-display), serif;
+}
+
 .page {
   width: min(1180px, calc(100% - 2rem));
   margin: 0 auto;
@@ -70,9 +84,9 @@ a {
   padding: 0.9rem 1rem;
   border: 1px solid var(--surface-border);
   border-radius: 999px;
-  background: rgba(6, 8, 13, 0.72);
+  background: rgba(255, 250, 241, 0.82);
   backdrop-filter: blur(18px);
-  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.34);
+  box-shadow: 0 16px 38px rgba(22, 48, 44, 0.12);
 }
 
 .brand {
@@ -107,8 +121,8 @@ a {
   height: 2.8rem;
   border-radius: 999px;
   overflow: hidden;
-  background: linear-gradient(135deg, rgba(216, 179, 109, 0.35), rgba(241, 211, 138, 0.35));
-  border: 1px solid rgba(241, 211, 138, 0.35);
+  background: linear-gradient(135deg, rgba(199, 168, 92, 0.36), rgba(21, 93, 88, 0.22));
+  border: 1px solid rgba(21, 93, 88, 0.2);
 }
 
 .brand strong,
@@ -168,7 +182,7 @@ a {
   padding: 0.5rem 0.85rem;
   border: 1px solid var(--surface-border);
   border-radius: 999px;
-  background: var(--panel);
+  background: rgba(255, 255, 255, 0.62);
   letter-spacing: 0.16em;
   text-transform: uppercase;
   font-size: 0.75rem;
@@ -181,7 +195,7 @@ h1 {
   font-size: clamp(3.7rem, 11vw, 7.6rem);
   line-height: 0.9;
   letter-spacing: -0.05em;
-  color: #f4efe5;
+  color: var(--text);
   text-shadow: none;
 }
 
@@ -233,10 +247,10 @@ h1 {
 .reasons span:hover,
 .results-strip span:hover,
 .add-on-list div:hover {
-  border-color: rgba(241, 211, 138, 0.45);
+  border-color: rgba(21, 93, 88, 0.28);
   color: var(--text);
-  background: rgba(241, 211, 138, 0.08);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+  background: rgba(199, 168, 92, 0.1);
+  box-shadow: 0 12px 30px rgba(22, 48, 44, 0.1);
 }
 
 .actions {
@@ -268,13 +282,13 @@ h1 {
 }
 
 .primary {
-  background: linear-gradient(135deg, var(--accent), #d0f3e6);
-  color: #03131d;
+  background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+  color: #16302c;
   font-weight: 700;
 }
 
 .secondary {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.7);
   border-color: var(--surface-border);
 }
 
@@ -285,18 +299,18 @@ h1 {
 }
 
 .button:hover {
-  border-color: rgba(241, 211, 138, 0.45);
+  border-color: rgba(21, 93, 88, 0.28);
 }
 
 .button-solid {
-  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-  color: #140f05;
+  background: linear-gradient(135deg, var(--accent), #d9c072);
+  color: #16302c;
   font-weight: 700;
 }
 
 .button-ghost {
   border-color: var(--surface-border);
-  background: var(--surface);
+  background: rgba(255, 255, 255, 0.74);
   color: var(--text);
 }
 
@@ -358,9 +372,9 @@ h1 {
 .enquiry-form {
   border: 1px solid var(--surface-border);
   border-radius: 1.5rem;
-  background: rgba(9, 11, 16, 0.82);
+  background: rgba(255, 250, 241, 0.84);
   backdrop-filter: blur(18px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 20px 50px rgba(22, 48, 44, 0.1);
 }
 
 .glass-card,
@@ -378,8 +392,8 @@ h1 {
 .package-card:hover,
 .contact-details:hover,
 .enquiry-form:hover {
-  border-color: rgba(241, 211, 138, 0.34);
-  box-shadow: 0 24px 60px rgba(216, 179, 109, 0.14);
+  border-color: rgba(21, 93, 88, 0.26);
+  box-shadow: 0 24px 60px rgba(22, 48, 44, 0.12);
 }
 
 .process,
@@ -450,8 +464,8 @@ h1 {
 
 .service-card.open,
 .package-card.featured {
-  border-color: rgba(241, 211, 138, 0.45);
-  box-shadow: 0 20px 60px rgba(216, 179, 109, 0.16);
+  border-color: rgba(21, 93, 88, 0.28);
+  box-shadow: 0 20px 60px rgba(21, 93, 88, 0.12);
 }
 
 .service-card:hover .service-trigger strong,
@@ -475,12 +489,12 @@ h1 {
 }
 
 .filter.active {
-  color: #1a1204;
-  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  color: #16302c;
+  background: linear-gradient(135deg, var(--accent), var(--accent-soft));
 }
 
 .filter.active:hover {
-  color: #1a1204;
+  color: #16302c;
 }
 
 .proof-grid {
@@ -510,7 +524,7 @@ h1 {
 .package-head span {
   padding: 0.35rem 0.7rem;
   border-radius: 999px;
-  background: rgba(216, 179, 109, 0.15);
+  background: rgba(21, 93, 88, 0.08);
   color: var(--accent-strong);
 }
 
@@ -566,7 +580,7 @@ textarea {
   padding: 0.9rem 1rem;
   border-radius: 1rem;
   border: 1px solid var(--surface-border);
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(255, 255, 255, 0.88);
   color: var(--text);
   font: inherit;
 }
@@ -596,6 +610,7 @@ textarea {
   gap: 1rem;
   padding: 2rem 0 1rem;
   font-size: 0.92rem;
+  color: var(--muted);
 }
 
 .footer-brand {

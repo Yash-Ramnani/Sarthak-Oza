@@ -409,7 +409,7 @@ export default function Home() {
             <a href="https://instagram.com/sarthak.ozha" target="_blank" rel="noreferrer">
               @sarthak.ozha
             </a>
-            <a href="/Sarthak_Ozha_Brochure.pdf" target="_blank" rel="noreferrer" download="Sarthak_Ozha_Brochure.pdf" className="button button-solid full" style={{ marginTop: "1rem", color: "Black" }}>
+            <a href="/Sarthak_Ozha_Brochure.pdf" target="_blank" rel="noreferrer" download="Sarthak_Ozha_Brochure.pdf" className="button button-solid full" style={{ marginTop: "1rem" }}>
               Download Brochure
             </a>
           </div>
