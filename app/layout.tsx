@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Caladea, Carlito } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 
 const caladea = Caladea({
   subsets: ["latin"],
@@ -16,14 +17,14 @@ const carlito = Carlito({
 });
 
 export const metadata: Metadata = {
-  title: "Sarthak Ozha | Digital Marketing, Creative Production & Growth",
+  title: "Sarthak oza | Digital Marketing, Creative Production & Growth",
   description:
-    "Sarthak Ozha builds brochure-inspired digital marketing experiences with social media management, creative production, influencer marketing, SEO, paid ads, branding, and websites.",
+    "Sarthak oza builds brochure-inspired digital marketing experiences with social media management, creative production, influencer marketing, SEO, paid ads, branding, and websites.",
   icons: {
     icon: "/favicon.png",
   },
   keywords: [
-    "Sarthak Ozha",
+    "Sarthak oza",
     "digital marketing agency",
     "creative production",
     "social media marketing",

@@ -181,12 +181,12 @@ export default function Home() {
   return (
     <main className="page">
       <header className="topbar">
-        <a className="brand" href="#home" aria-label="Sarthak Ozha home">
+        <a className="brand" href="#home" aria-label="Sarthak oza home">
           <span className="brand-mark">
-            <Image src="/sarthakoza.png" alt="Sarthak Ozha logo" fill sizes="44px" priority />
+            <Image src="/sarthakoza.png" alt="Sarthak oza logo" fill sizes="44px" priority />
           </span>
           <span>
-            <strong>Sarthak Ozha</strong>
+            <strong>Sarthak oza</strong>
             <small>Digital Marketing • Creative Production • Growth</small>
           </span>
         </a>
@@ -207,7 +207,7 @@ export default function Home() {
             {/* <p className="eyebrow">Brochure-inspired digital marketing website</p> */}
             <h1>Let&apos;s Grow Your Business Together</h1>
             <p className="lede">
-              We shoot brands. We build impact. Sarthak Ozha helps businesses grow through cinematic creative
+              We shoot brands. We build impact. Sarthak oza helps businesses grow through cinematic creative
               production, social media marketing, influencer campaigns, paid ads, SEO, branding, and conversion-ready
               websites.
             </p>
@@ -237,7 +237,7 @@ export default function Home() {
           <aside className="hero-visual" aria-label="Growth snapshot">
             <div className="hero-panel">
               {/* <div className="hero-panel-top">
-                <span className="hero-panel-eyebrow">Sarthak Ozha</span>
+                <span className="hero-panel-eyebrow">Sarthak oza</span>
                 <span className="hero-panel-badge">Open for projects</span>
               </div> */}
 
@@ -323,7 +323,7 @@ export default function Home() {
         </div>
         <div className="glass-card">
           <p>
-            Sarthak Ozha is a digital marketing firm founded by Sarthak Ozha, built to help businesses across every
+            Sarthak oza is a digital marketing firm founded by Sarthak Ozha, built to help businesses across every
             sector attract more customers, build a stronger online presence, and grow with purpose.
           </p>
           <p>
@@ -446,7 +446,7 @@ export default function Home() {
             <h3>Direct contact</h3>
             <a href="tel:+918780080875">8780080875</a>
             <a href="tel:+918780486871">8780486871</a>
-            <a href="mailto:sarthak.ozha@gmail.com">sarthak.ozha@gmail.com</a>
+            <a href="mailto:sarthak.oza@gmail.com">sarthak.ozha@gmail.com</a>
             <a href="https://instagram.com/sarthak.ozha" target="_blank" rel="noreferrer">
               @sarthak.ozha
             </a>
@@ -525,7 +525,7 @@ export default function Home() {
       <footer className="footer">
         <span className="footer-brand">
           <Image src="/sarthakoza.png" alt="Sarthak Ozha logo" width={24} height={24} />
-          Sarthak Ozha
+          Sarthak Oza
         </span>
         <span>Digital marketing • Creative production • Growth</span>
         <span>Copyright 2026</span>
