@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Caladea, Carlito } from "next/font/google";
 import type { ReactNode } from "react";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next"   
 
 const caladea = Caladea({
   subsets: ["latin"],
