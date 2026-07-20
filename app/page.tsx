@@ -154,6 +154,14 @@ const keywords = [
   "lead generation",
 ];
 
+const heroSignals = [
+  { value: "7", label: "service pillars" },
+  { value: "3", label: "growth packages" },
+  { value: "1", label: "clear growth system" },
+];
+
+const heroHighlights = ["Social media", "Creative production", "Paid ads", "SEO"];
+
 export default function Home() {
   const [openServices, setOpenServices] = useState<string[]>(() => services.map((service) => service.id));
   const [selectedPackage, setSelectedPackage] = useState("Growth");
@@ -194,93 +202,76 @@ export default function Home() {
       </header>
 
       <section className="hero section" id="home">
-        {/* <p className="eyebrow">Brochure-inspired digital marketing website</p> */}
-        <h1>Let&apos;s Grow Your Business Together</h1>
-        <p className="lede">
-          We shoot brands. We build impact. Sarthak Ozha helps businesses grow through cinematic creative production,
-          social media marketing, influencer campaigns, paid ads, SEO, branding, and conversion-ready websites.
-        </p>
-        <div className="keywords" aria-label="SEO keywords">
-          {keywords.map((keyword) => (
-            <span key={keyword}>{keyword}</span>
-          ))}
-        </div>
-        <div className="actions">
-          <a className="button button-solid" href="#proof">
-            See Our Work
-          </a>
-          <a className="button button-ghost" href="#contact">
-            Book a Free Consultation
-          </a>
-        </div>
-        <div className="hero-stats" aria-label="Service highlights">
-          <div>
-            <strong>7</strong>
-            <span>service categories</span>
+        <div className="hero-layout">
+          <div className="hero-copy">
+            {/* <p className="eyebrow">Brochure-inspired digital marketing website</p> */}
+            <h1>Let&apos;s Grow Your Business Together</h1>
+            <p className="lede">
+              We shoot brands. We build impact. Sarthak Ozha helps businesses grow through cinematic creative
+              production, social media marketing, influencer campaigns, paid ads, SEO, branding, and conversion-ready
+              websites.
+            </p>
+            <div className="keywords" aria-label="SEO keywords">
+              {keywords.map((keyword) => (
+                <span key={keyword}>{keyword}</span>
+              ))}
+            </div>
+            <div className="actions">
+              <a className="button button-solid" href="#proof">
+                See Our Work
+              </a>
+              <a className="button button-ghost" href="#contact">
+                Book a Free Consultation
+              </a>
+            </div>
+            <div className="hero-stats" aria-label="Service highlights">
+              {heroSignals.map((signal) => (
+                <div key={signal.label}>
+                  <strong>{signal.value}</strong>
+                  <span>{signal.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div>
-            <strong>3</strong>
-            <span>growth packages</span>
-          </div>
-          <div>
-            <strong>1</strong>
-            <span>brochure-first experience</span>
-          </div>
-        </div>
-      </section>
 
-      <section className="section section-split" id="about">
-        <div>
-          <p className="section-label">About</p>
-          <h2>Built on story, strategy, and growth.</h2>
-        </div>
-        <div className="glass-card">
-          <p>
-            Sarthak Ozha is a digital marketing firm founded by Sarthak Ozha, built to help businesses across every
-            sector attract more customers, build a stronger online presence, and grow with purpose.
-          </p>
-          <p>
-            We combine cinematic storytelling with data-driven strategy, shooting content that stops the scroll and
-            backing it with the marketing systems that turn attention into revenue.
-          </p>
-          <div className="process">
-            <span>1. Shoot</span>
-            <span>2. Strategize</span>
-            <span>3. Grow</span>
-          </div>
-        </div>
-      </section>
+          <aside className="hero-visual" aria-label="Growth snapshot">
+            <div className="hero-panel">
+              {/* <div className="hero-panel-top">
+                <span className="hero-panel-eyebrow">Sarthak Ozha</span>
+                <span className="hero-panel-badge">Open for projects</span>
+              </div> */}
 
-      <section className="section" id="services">
-        <div className="section-heading">
-          <p className="section-label">Services</p>
-          <h2>Seven brochure services, presented as expandable cards.</h2>
-        </div>
-        <div className="services-grid">
-          {services.map((service) => {
-            const isOpen = openServices.includes(service.id);
-            return (
-              <article key={service.id} className={`service-card ${isOpen ? "open" : ""}`}>
-                <button
-                  type="button"
-                  className="service-trigger"
-                  aria-expanded={isOpen}
-                  onClick={() => toggleService(service.id)}
-                >
-                  <span className="service-tag">{service.category}</span>
-                  <strong>{service.title}</strong>
-                </button>
-                <p>{service.short}</p>
-                {isOpen && (
-                  <ul>
-                    {service.details.map((detail) => (
-                      <li key={detail}>{detail}</li>
-                    ))}
-                  </ul>
-                )}
-              </article>
-            );
-          })}
+              <div className="hero-profile">
+                <span className="hero-avatar">
+                  <Image src="/favicon.png" alt="Sarthak Ozha logo" fill sizes="56px" />
+                </span>
+                <div>
+                  <strong>Growth systems that look premium</strong>
+                  <p>
+                    Strategy, content, and conversion design presented like a polished campaign board instead of an
+                    empty gap.
+                  </p>
+                </div>
+              </div>
+
+              <div className="hero-panel-grid" aria-label="Hero highlights">
+                {heroHighlights.map((item) => (
+                  <span key={item}>{item}</span>
+                ))}
+              </div>
+
+              <div className="hero-panel-stats">
+                <div>
+                  <strong>10+</strong>
+                  <span>deliverables shaped for growth</span>
+                </div>
+                <div>
+                  <strong>100%</strong>
+                  <span>campaign-ready presentation</span>
+                </div>
+              </div>
+            </div>
+          </aside>
         </div>
       </section>
 
@@ -322,6 +313,56 @@ export default function Home() {
           </a></span>
           <span><a href="tel:8780080875">Phone: 8780080875 / 8780486871</a></span>
           <span><a href="mailto:sarthak.ozha@gmail.com">Mail: sarthak.ozha@gmail.com</a></span>
+        </div>
+      </section>
+
+      <section className="section section-split" id="about">
+        <div>
+          <p className="section-label">About</p>
+          <h2>Built on story, strategy, and growth.</h2>
+        </div>
+        <div className="glass-card">
+          <p>
+            Sarthak Ozha is a digital marketing firm founded by Sarthak Ozha, built to help businesses across every
+            sector attract more customers, build a stronger online presence, and grow with purpose.
+          </p>
+          <p>
+            We combine cinematic storytelling with data-driven strategy, shooting content that stops the scroll and
+            backing it with the marketing systems that turn attention into revenue.
+          </p>
+          <div className="process">
+            <span>1. Shoot</span>
+            <span>2. Strategize</span>
+            <span>3. Grow</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="services">
+        <div className="section-heading">
+          <p className="section-label">Services</p>
+          <h2>Seven brochure services, presented as expandable cards.</h2>
+        </div>
+        <div className="services-grid">
+          {services.map((service) => {
+            const isOpen = openServices.includes(service.id);
+            return (
+              <article key={service.id} className={`service-card ${isOpen ? 'open' : ''}`}>
+                <button className="service-trigger" type="button" onClick={() => toggleService(service.id)}>
+                  <span className="service-tag">{service.category}</span>
+                  <strong>{service.title}</strong>
+                  <p>{service.short}</p>
+                </button>
+                {isOpen && (
+                  <ul>
+                    {service.details.map((detail) => (
+                      <li key={detail}>{detail}</li>
+                    ))}
+                  </ul>
+                )}
+              </article>
+            );
+          })}
         </div>
       </section>
 
