@@ -43,7 +43,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${caladea.variable} ${carlito.variable}`}>{children}</body>
+      <body className={`${caladea.variable} ${carlito.variable}`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
